@@ -1,0 +1,23 @@
+url: https://edgar-treischl.github.io/edgar/
+template:
+  bootstrap: 5
+  bootswatch: simplex
+  bslib:
+    primary: "#2a9d8f"
+navbar:
+  structure:
+    right: [github]
+    components:
+    text: Articles
+    menu:
+    - text: Illustrations
+      href: articles/web_only/illustrations/illustrations.html
+    - text: Helpers
+      href: articles/web_only/helper.html
+
+development:
+  mode: auto
+authors:
+  Edgar Treischl:
+    href: https://www.edgar-treischl.de/
+

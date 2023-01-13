@@ -1,0 +1,45 @@
+---
+title: "Examples"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Examples}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(edgar)
+library(palmerpenguins)
+```
+
+
+## A Pie Chart
+
+```{r}
+ggpie(penguins, fill = species)
+```
+
+## Slope Chart
+
+```{r}
+ df <- tidyr::tribble(
+ ~times, ~country,  ~gdp, ~inc,
+ "1990",   "A",  22.3, TRUE,
+ "2000",   "A",  44.6, TRUE,
+ "1990",   "B",  12.3, FALSE,
+ "2000",   "B",  4.6, FALSE
+ )
+
+ggslope(df,
+         times = times,
+         outcome = gdp,
+         group = country)
+```
+

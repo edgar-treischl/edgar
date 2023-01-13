@@ -6,48 +6,77 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of edgar is to …
+This site is the home, a personal package, and a vehicle for graphs made
+with R. It is the home because the site summarizes all kind of
+visualizations that I made for my work. However, it is also an R package
+and it installs the source code of many illustrations and the package
+provides functions to make graphs with `ggplot2` (e.g., slope plots)
 
 ## Installation
 
-You can install the development version of edgar like so:
+You can install Graphs from [GitHub](https://github.com/) with:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# install.packages("devtools")
+devtools::install_github("edgar-treischl/edgar")
 ```
 
-## Example
+## Illustrations
 
-This is a basic example which shows you how to solve a common problem:
+The package installs the source code for all illustrations from this
+website. The `plotgraph()` function just picks the installed source code
+and returns the graphs. For example, the `datasaurus` plot.
 
 ``` r
-library(edgar)
 ## basic example code
+library(edgar)
+plotgraph("datasaurus.R")
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+<img src="vignettes/web_only/illustrations/saurus.png" alt="Data saurus by Edgar Treischl" width="100%" />
+
+Inspect the website to for a specific graph. Without input, the
+`plotgraph()` function returns all available graphs.
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+plotgraph()
+#> Error in plotgraph(): Please run `plotgraph()` with a valid argument.
+#> Valid examples are:
+#> anscombe_quartet.R
+#> boxplot_illustration.R
+#> boxplot_pitfalls.R
+#> data_joins.R
+#> datasaurus.R
+#> gapminder.R
+#> long_wide.R
+#> pacman.R
+#> simpson.R
+#> ucb_admission.R
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
+## Graphs
 
-You can also embed plots, for example:
+And the package gives access to shortcut functions to make `ggplot2`
+graphs. For example, `ggslope()` returns a slope chart.
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+``` r
+library(tidyr)
+#> Warning: package 'tidyr' was built under R version 4.1.2
+library(ggplot2)
+#> Warning: package 'ggplot2' was built under R version 4.1.2
+df <- tribble(
+ ~times, ~country,  ~gdp, ~inc,
+ "1990",   "A",  22.3, TRUE,
+ "2000",   "A",  44.6, TRUE,
+ "1990",   "B",  12.3, FALSE,
+ "2000",   "B",  4.6, FALSE
+ )
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+ggslope(df,
+         times = times,
+         outcome = gdp,
+         group = country)+
+  theme_minimal()
+```
+
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
