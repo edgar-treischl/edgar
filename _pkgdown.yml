@@ -10,10 +10,12 @@ navbar:
     components:
     text: Articles
     menu:
+    - text: Apps
+      href: articles/web_only/apps/apps.html
+    - text: Helpers
+      href: articles/web_only/Helper/helper.html
     - text: Illustrations
       href: articles/web_only/illustrations/illustrations.html
-    - text: Helpers
-      href: articles/web_only/helper.html
 
 development:
   mode: auto

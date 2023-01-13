@@ -1,0 +1,350 @@
+---
+title: "Summary: Who survived the Titanic?"
+author: "Edgar Treischl"
+date: "`r format(Sys.time(), ' %d. %B %Y')`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE,
+                      fig.height = 4)
+library(ggplot2)
+library(titanic)
+library(ggbeeswarm)
+library(viridis)
+library(broom)
+library(tidyverse)
+library(ggalluvial)
+library(caret)
+library(ggmosaic)
+library(precrec)
+library(gridExtra)
+library(cowplot)
+
+train_df<- titanic::titanic_train
+
+train_df$Survived <- factor(train_df$Survived, 
+                            levels = c(0, 1),
+                            labels = c("Not survived", "Survived")) 
+
+train_df$Pclass <- factor(train_df$Pclass, 
+                            levels = c(1, 2 , 3),
+                            labels = c("First class", "Second class", "Third class")) 
+
+glm_fit <- glm(Survived ~ Sex + Age + Pclass , family = binomial(link = 'logit'), data = train_df)
+```
+
+How many people survived the Titanic? Who had a higher chance to survive, men or women? What about class and age? This app shows you some basic aspects about logistic regression. We use passenger's sex, class, and age to estimate the effect on the survival of the Titanic accident.
+
+
+```{r Survivedplot}
+p1 <- ggplot(train_df, aes(x= Survived)) + 
+  geom_bar(aes(y = (..count..)/sum(..count..)), fill=c("#999999"))+
+  ylab("Percent")+
+  theme_bw(base_size = 12)
+
+p2 <- ggplot(train_df, aes(x= Sex, fill = Survived)) + 
+  geom_bar(aes(y = (..count..)/sum(..count..)))+
+  theme_bw()+
+  ylab("Percent")+
+  theme(legend.position="bottom")+
+  theme(text = element_text(size=12))+
+  scale_fill_manual(values=c("#009E73","#E69F00"))
+
+plot_grid(
+  p1, p2,
+  labels = c("A", "B"), ncol = 2
+)
+
+```
+
+
+
+
+
+## Idea: Logistic regression, but why?
+
+There are several reasony why logisitic regressions were invented to model binary outcomes. You can see the most obvious reason in the figure below. Imagine that we insert a regression line to model a binary outcome. Look how a scatter plot would look like in such a situation.
+
+```{r logitplot1, echo=FALSE}
+
+set.seed(2)
+y <- rep(c(0,1), 500)
+x <- 10 + rnorm(250, 3, 3)+ rnorm(250, 10, 3)*y
+        
+data <- data.frame(x, y) %>%
+  as.tibble
+        
+ggplot(data, aes(x = x, y = y)) + 
+  geom_point(color = "gray")+
+  geom_smooth(method='lm', formula= y~x, colour = "#008080")+
+  theme_bw(base_size = 12)
+
+```
+
+In a linear regression, we try to fit a line that minimizes the error, but in the case of a binary outcome, the observed error is not homoscedastic. Moreover, the variance of the error term depends on the particular value of X, but we observe only 0 or 1. There are no no observations between zero and one, even though we use a regression line to model between the two outcome values. The next outshows shows you how the distribution of a logistic and the probit function looks like.
+
+
+```{r logitplot2, echo=FALSE}
+
+sigmoid <- function(x){
+  return(1/(1 + exp(-x)))
+  }
+        
+
+probit <- function(x){
+  return(pnorm(x))
+  }
+        
+
+ggplot(data.frame(x = c(-5, 5)), aes(x = x)) +
+  stat_function(fun = sigmoid, color="#008080", size = 1)+
+  stat_function(fun = probit, color="#2C3E50", size = 1)+
+  annotate("text", x = 3, y = 0.85, label = c("Logit"), colour = "#008080", size = 5)+
+  annotate("text", x = 0.85, y = 0.95, label = c("Probit"), colour = "#2C3E50", size = 5)+
+  theme_bw(base_size = 12) +
+  ggtitle("")
+
+```
+
+
+
+Both distributions are often used to model binary outcomes in the social sciences. Of course, we can adjust the first scatter plot and use a logit function to describe the relationsship between X and Y instead of a regression line.
+
+```{r logitplot3}
+ggplot(data, aes(x= x, y = y)) + 
+  geom_point(color = "gray")+
+  geom_smooth(method = "glm", method.args = list(family = "binomial"), colour = "#008080")+
+  theme_bw(base_size = 12)
+
+```
+
+The data for the scatter plot was simulated, that is reason why it looks nice and smooth, but I hope you get a first impression about the difference between linear and logistic regression.
+
+
+## The independent variables
+
+The surivival of the Titanic is a binary outcome and on the left side you can see how many people surived, based on a series of simple bar plot. However, If we want to explore the effect of several independent variables simultaneously, we can use a sankey plot. A sankey plot shows you how these variable work together. You can literally see how many people of each of group survived(1) or did not survive (0).
+
+```{r}
+#Titanic2
+tita<- titanic::titanic_train
+
+
+tita<- tita %>% 
+    select(Age, Sex, Survived, Pclass)%>% 
+    mutate(
+        Adults = case_when(
+            Age >= 0 & Age < 14    ~ "Kids",
+            Age >= 14 & Age < 100   ~ "Adult",
+            TRUE                   ~ "NA")
+    ) %>%
+    mutate(Adults = na_if(Adults, "NA"))
+
+
+tita<- tita %>% 
+    group_by(Sex, Survived, Pclass, Adults) %>% 
+    drop_na() %>% 
+    count(Sex) 
+
+
+tita$Survived <- factor(tita$Survived, 
+                      levels = c(0, 1),
+                      labels = c("Not survived", "Survived")) 
+
+tita$Pclass <- factor(tita$Pclass, 
+                          levels = c(1, 2 , 3),
+                          labels = c("1. Class", "2. Class", "3. class")) 
+
+
+ggplot(data = tita, aes(axis1 = Sex, axis2 = Adults, axis3 = Pclass, y = n)) +
+  scale_x_discrete(limits = c("Sex", "Adults", "Class"), expand = c(.2, .05)) +
+  xlab("Group") +
+  geom_alluvium(aes(fill = Survived),  alpha = 0.75) +
+  geom_stratum() +
+  geom_text(stat = "stratum", aes(label = after_stat(stratum)), size = rel(4)) +
+  theme_minimal(base_size = 12)+
+  scale_fill_manual(values = c("#009E73","#E69F00"))+
+  theme(legend.position="bottom")
+
+```
+
+
+
+What would you say? Which one has the strongest effect on the survival? It looks like sex and class have a strong effect on survival. Instead of guessing, we can use a logisitic regression to estimate the effect of passengers' sex, age, and class simultaneously. You never applied a linear regression? Well, check out the regression in a nutshell app first because on this page I assume that you are familar with the principals of a linear regression analysis.
+
+
+
+## The Model
+
+Let's run a logistic regression. Which of the following independent variables do you want to include to estimate the effect on survival?
+
+```{r, echo=TRUE}
+summary(glm(Survived ~ Sex + Pclass + Age, 
+            family = binomial(link = 'logit'), 
+            data = train_df))
+```
+
+Maybe you picked passenger's sex, but what tells you the estimate(s) of your model? The estimate for Male compared to women is negative and -2.51? Due to the assumptions of the logistic regression, we get the logarithm of the odds to survive as a results. In case of log(odds), we can only say whether an effect is positiv or negative and check the significane. Thus, such a estimate is hard to explain what it really means. Instead of the log odds, we can estimate odds ratios and make prediction about the probability to survive. Both are easier to interpret.
+
+
+## Odds Ratio?
+
+What would be the chance to survive for men if they had the same odds (chance) to surive compare to women? The odds would be one, since we expect that the same amount of men and women would surived. You can calculate the odds ratio with the help of the logisitic regression. However, let's try to calculate it by hand to get a better intuition what a OR means. In order to do so, the next plot how many men and women have survived.
+
+```{r}
+ggplot(train_df, aes(x= Sex, fill = Survived)) + 
+  geom_bar()+
+  geom_text(stat='count', aes(label=..count..), vjust=-1,
+            position = position_stack(vjust = 0), size = rel(5))+
+  theme_bw(base_size = 12)+
+  ylab("Count")+
+  scale_fill_manual(values=c("#009E73","#E69F00"))+
+  theme(legend.position="bottom")
+
+```
+
+Look at the bar graph and the numbers of each group. We get the men's odds to survive if we divide the number of survived men (109) by the number of men who did not surive (468). Women's odds to survive are calculated the very same way (233/81). In the last step, divide men's odds by women's odds and you get the odds ratio for men to survive.
+
+
+We don't have to work this out in our own head, just use your statistics software as a calcultor, as the next console shows:
+
+```{r, echo=TRUE}
+Oddswoman <- 233/81
+Oddswoman
+        
+Oddsman <- 109/468
+Oddsman
+        
+ORman <- round(Oddsman/Oddswoman, 3)
+ORman
+```
+
+### Remember the interpretation
+
+- OR = 1: No effect
+
+- OR > 1: Positive effect
+
+- 0 < OR < 1: Negative effect
+
+
+Thus, men's chance to surive is reduced by the factor 0.08 compared to women. What about age and the other variables in your model? Go back to the Model tab if you did not choose any independent variable for the analysis. And all the OR from the full model:
+
+```{r}
+model <- glm(Survived ~ Sex + Pclass + Age, family = binomial(link = 'logit'), data = train_df)
+
+tidy(model)%>% 
+  mutate(oddsRatio = exp(estimate))%>%
+  select(term, estimate, oddsRatio)%>%
+  mutate(term=replace(term, term=="(Intercept)", NA)) %>% 
+  drop_na()%>% 
+  ggplot(aes(x = term, y= oddsRatio)) +
+  geom_bar(stat="identity")+
+  geom_text(aes(label=round(oddsRatio, 3)), vjust=-1, size = rel(5))+
+  ylab("Odds Ratio")+
+  xlab("Coefficient")+
+  theme_bw(base_size = 12)+
+  expand_limits(y=c(0,2))
+
+```
+
+
+A lot of people argue that OR are also not very intuitive and they provide several good reasons why this might be the case. For instance, include age in your model. What would you say regarding the odds ratio for age? Has age no or at least only a small effect? Nope, age has a substantial effect on the chance to surive! A OR is intuitive if we compare groups, in the case of age it is easier to examine the effect size if we calculate probabilities for the entire range of age. Go and grab your wand, on the next page you can make predictions and see how each variable affects the probability to survive.
+
+## Predictions
+
+I guess this is the most intuitive interpretation of a logistic regression, since we want to know about the probability to survive, not log odds or a ratio. We can use the model to predict values! For instance, see how the prediction of survival drops if you switch from women to men. Below you can provide values for age and class as well.
+
+
+
+
+## Performance: How well does the model perform?
+
+Probably you know that R² is often used to assess the performance of a linear model. Unfortunately, it is a bit harder to assess the performance of a logistic regression. There are pseudo R² for logistic regression to compare nested models, but we cannot interpret them as explained variance as we do it with linear model. Instead, you may encounter two terms: sensitivity and specificity.
+
+
+Sensitivity takes into account whether we classified the true outcome right. How many people who survived (true positives) did our model classify as survivor? The mosaic plot shows you how many passengers did (not) survive; on the x-axis as we have observed and y-axis displays our prediction. We can calculate the sensitivity by dividing the true positives by all the people who survived (207/290). Thus, the sensitivity is 0.71.
+
+```{r}
+ pred_surv <- (predict(glm_fit, train_df, type = 'response') > 0.5) * 1
+        
+df_pred <- data.frame('PassengerId' = train_df$PassengerId, 'True' =  train_df$Survived, 
+                      'Predicted' = pred_surv) %>% drop_na()
+        
+        
+df_pred$Predicted <- factor(df_pred$Predicted, 
+                            levels = c(0, 1),
+                            labels = c("Not survived", "Survived")) 
+        
+cmMatrix<- confusionMatrix(df_pred$Predicted, df_pred$True,  positive = "Survived")
+        
+        
+label_df <- df_pred %>% 
+  group_by(True, Predicted) %>% 
+  count() %>% 
+  arrange(True)
+        
+df <- data.frame(
+  x = c(0.32, 0.32, 0.82, 0.82),
+  y = c(0.1, 0.9, 0.1, 0.9),
+  text = label_df$n,
+  text2 = c("True negative", "False positive", "False negative", "True positive")
+  )
+        
+sample_size = df_pred %>% group_by(True) %>% summarize(num=n())
+        
+df_pred %>%
+  left_join(sample_size) %>%
+  mutate(True = paste0(True, "\n", "n=", num)) %>%
+  ggplot() + 
+  geom_mosaic(aes(x = product(True), fill = Predicted), alpha = 1)+
+  scale_fill_manual(values=c("#E69F00","#009E73"))+
+  geom_label(data = df, aes(x = x, y = y, 
+                            label = paste0(text2, ":", text)),
+             size = rel(4))+
+  ylab("Predicted")+
+  xlab("Observed")+
+  theme_minimal(base_size = 12)+
+  labs(caption = paste0("Sensitivity: ", round(cmMatrix$byClass[1], 2), 
+                        ", Specificity: ", round(cmMatrix$byClass[2], 2)))+
+  theme(plot.caption = element_text(color = "black", size = 12, hjust = 0, face = "bold"))+
+  theme(legend.position = "none")
+        
+```
+
+How many people did we classify as not-surived, who actually did not survive the Titanic (true negative)? Hence, the specificity does the same job for the negative outcome. If you divide the true negatives by all people who did not survive (356/424), you get the specificity.
+
+
+A common way to combine both indicators are ROC curves. As the plot below illustrates, a ROC curve displays the sensitivity on the y-axis, and the false positive rate (1-specificity) on the x-axis. What does the ROC curve tells you? By predicting a binary outcome, we want to achieve two things simualtaneously: We want to classify the number of people who survived correctly, while we wish that the number of false positives is rather small. Thus, we wish to have a sensitivity of 1 and a false positive rate of zero (highlighted in black in the ROC curve below). However, if the model does not help to predict the outcome, the ROC curve would be a diagnal line, since a fair toss of a coin would have the same predicitive power. 50% of the time we identify people correctly, 50% of the time we make a wrong prediction.
+
+```{r}
+
+pred_roc <- (predict(glm_fit, train_df, type = 'response') > 0.5) * 1
+df_roc <- data.frame('Survived' = train_df$Survived, 'predict' =  pred_roc)
+precrec_obj <- evalmod(scores = df_roc$predict, labels = df_roc$Survived)
+        
+p <- autoplot(precrec_obj, "ROC")
+        
+p+
+  theme_minimal(base_size = 12)+
+  geom_line(size = 1, color="#E69F00")+
+  geom_vline(xintercept = 0, size=1, color="black") + 
+  geom_hline(yintercept = 1, size=1, color="black") + 
+  geom_abline(size = 0.8, linetype = "dashed", color="darkgray")+
+  theme(legend.position = "none")+
+  ggtitle("")
+
+```
+
+
+Sensitivity and specificity are not the only measures of performance, but in terms of interpretation, we should remember the further the ROC curve is away from the diagonal (and closer to the black line), the greater the explanatory power of the model.
+
+
+
+
+
+
+

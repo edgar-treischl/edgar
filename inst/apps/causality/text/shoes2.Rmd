@@ -1,0 +1,1 @@
+Obviously, both regression line are flat and we no longer observe a substantiall correlation between X and Y if we control for the confounder. Moreover, see what happens if you increase (decrease) the income or the precision of the measurement. Both determine if we find a substantial effect between shoe size and income in the first place.

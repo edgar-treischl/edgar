@@ -1,0 +1,5 @@
+### Shoe Size explain income?
+
+As outlined, shoe size and peoples' income can be correlated. The biological sex of a person determines feet size and men have on average a higher income (e.g. due to part time work) compared to women. Thus, the third variable *sex* is a common cause that affect both variables, shoe size and income. 
+
+The scatter plot on the right side illustrates this example. Depending on how strong sex is related with income and shoe size, we may observe a substantial effect of shoe size on income. However, see what happens if we control for sex. In terms of a scatter plot, we split the data we give each sex a different color; or in terms of a multivariate analysis, we include sex in the analysis.

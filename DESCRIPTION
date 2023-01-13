@@ -16,6 +16,7 @@ Imports:
     ggrepel,
     magrittr,
     palmerpenguins,
+    shiny,
     stringr,
     tidyr
 Suggests: 

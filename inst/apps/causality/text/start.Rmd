@@ -1,0 +1,7 @@
+### Causality
+
+Causality is an important topic for the social sciences and many students know that correlation does not imply causation. As the scatter plot on the right side illustrates, there might be a strong association between two variables. This does not mean that X is a cause for Y, because a common cause may induce a correlation between the variables. They may not be correlated at all if we control a third variable. If this is the case, a *confounding variable* affects X and Y. Controlling for a confounder is a common strategy in the social sciences and this dashboards illustrates why we must control for confounding variables to estimate the true effect of X on Y.
+
+However, the same does not apply to mediator and collider variables. We must not control for mediator variable to estimate the true effect and may induce an correlation that otherwise does not exist if we control for a collider variable. You are in the right place if this sounds vague to you, because this dashboard illustrates the differences between those types of variables.
+
+[The app and the source code of this app is available on Github via an R package.](https://edgar-treischl.github.io/shinyapps/)

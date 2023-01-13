@@ -1,0 +1,3 @@
+
+
+Of course, this depends on several parameters and on the left side you can adjust how large the effect of X and Y on the collider (C) is.

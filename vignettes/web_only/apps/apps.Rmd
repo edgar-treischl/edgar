@@ -1,0 +1,39 @@
+---
+title: "Apps"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+knitr::opts_chunk$set(fig.retina = 3, 
+                      warning = FALSE, 
+                      message = FALSE)
+
+```
+
+The package contains the source code for my shiny apps. This page shows the links or you can run them via the package.
+
+```{r, error=TRUE}
+edgar::run_app()
+```
+
+
+
+## Linear Regression app
+
+[![](ols.png){width="694"}](http://rstudio.edgar-treischl.de/shiny/ols/)
+
+
+## Titanic app
+
+[![](LogitApp.png){width="694"}](http://rstudio.edgar-treischl.de/shiny/titanic/)
+
+
+## Power analysis app
+
+[![](PowerAnalysis.png){width="694"}](http://rstudio.edgar-treischl.de/shiny/power/)
+
+

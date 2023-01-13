@@ -1,0 +1,5 @@
+### The Mediator  
+
+Can you explain why X and Y are correlated. What is the theoretical explanation behind it? Maybe X increase Z which leads in consequence to an increase of Y. Thus, a third variable may explain why X and Y are correlated and speak about a mediator in this case. Mediation implies that we understand the black-box and can outline why higher values of X goes hand in hand with higher Y. Mediation does not imply that the correlation of X and Y is spurious. On the contrary, we get a deeper theoretical knowledge about the effect if we include the mediator in the analysis to examine if the variables reduces the effect of X on Y. 
+
+What happens if we want to estimate the true effect on X on Y. Shall we control for the mediator? If we control a mediator we probably discover that the effect of X on Y will be reduced since a part of the variance is explained by the mediator. However, do not fool yourself and include a mediator if you want to estimate the true effect on X on Y. 

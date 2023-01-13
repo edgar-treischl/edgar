@@ -1,0 +1,7 @@
+### Simulated data
+
+Did you know that shoe size explains peoples' income? I am kidding, the effect of shoe size and income is an example of a *confounding variable*, because participants' sex affect both variables. 
+
+Before we explore this effect in more detail, let's have a look at the data. To learn more about causality, the app uses simulated data because it is easier and let us make assumptions about the causal structure. We simulate data and determine that X affects Y, and not the other way around. On the right you can inspect a small part of the data.
+
+ For example, we create 1000 observations with 50 percent male and 50 percent female participants. Next, we make an assumption about the distribution of the income variable (e.g. mean income, standard deviation). Ultimately, we give male person a higher income (and larger shoe sizes) to simulate data for a confounding variable. Thus, this apps uses simulated data to examine what happens if we control a confounder, a mediator, and a collider in a linear regression analysis.
