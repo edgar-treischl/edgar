@@ -6,8 +6,8 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-This site is the home, a personal package, and a vehicle for graphs made
-with R. It is the home because the site summarizes all kind of
+This website is the home, a personal package, and a vehicle for graphs
+made with R. It is the home because the site summarizes all kind of
 visualizations that I made for my work. However, it is also an R package
 and it installs the source code of many illustrations and the package
 provides functions to make graphs with `ggplot2` (e.g., slope plots)
