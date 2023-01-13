@@ -19,6 +19,9 @@
     <loc>https://edgar-treischl.github.io/edgar/articles/web_only/Helper/helper.html</loc>
   </url>
   <url>
+    <loc>https://edgar-treischl.github.io/edgar/articles/web_only/apps/apps.html</loc>
+  </url>
+  <url>
     <loc>https://edgar-treischl.github.io/edgar/articles/web_only/illustrations/illustrations.html</loc>
   </url>
   <url>
@@ -41,5 +44,8 @@
   </url>
   <url>
     <loc>https://edgar-treischl.github.io/edgar/reference/plotgraph.html</loc>
+  </url>
+  <url>
+    <loc>https://edgar-treischl.github.io/edgar/reference/run_app.html</loc>
   </url>
 </urlset>
