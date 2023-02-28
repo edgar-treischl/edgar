@@ -10,7 +10,7 @@ This is a personal R package and a home for apps and graphs made with R.
 The site shows several visualizations that I made for my work. However,
 it is also an R package and it installs the source code of many
 illustrations, apps, and functions to make graphs with `ggplot2` (e.g.,
-slope plots)
+slope plots).
 
 ## Installation
 

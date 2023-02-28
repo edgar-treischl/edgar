@@ -16,7 +16,7 @@ showplot <- function(variables) {
                     "#d0d1e6", "#d0d1e6", "#d0d1e6", "#d0d1e6", "#302E2E")
 
   p_long <- ggplot2::ggplot(df_long, ggplot2::aes(x=x, y=y)) +
-    ggplot2::geom_tile(color = "white", size = 1, fill = colour_long)+
+    ggplot2::geom_tile(color = "white", linewidth = 1, fill = colour_long)+
     ggplot2::geom_text(ggplot2::aes(label = labels_long), color = "white",
               size = 5, family="Patua")+
     ggplot2::coord_flip()+
@@ -46,7 +46,7 @@ showplot <- function(variables) {
                     "#d0d1e6", "#d0d1e6", "#302E2E")
 
   p_wide <- ggplot2::ggplot(df_wide, ggplot2::aes(x=x, y=y)) +
-    ggplot2::geom_tile(color = "white", size = 1, fill = colour_wide)+
+    ggplot2::geom_tile(color = "white", linewidth = 1, fill = colour_wide)+
     ggplot2::geom_text(ggplot2::aes(label = labels_wide),
               color = "white",
               size = 5, family="Patua")+
@@ -64,3 +64,5 @@ showplot <- function(variables) {
 
   p_long + p_wide
 }
+
+

@@ -1,12 +1,4 @@
-#library(ggplot2)
-#library(showtext)
-#library(dplyr)
-#library(cowplot)
 
-#ggplot2::theme_set(ggplot2::theme_minimal())
-
-#thematic::thematic_on(bg = "white", fg = "#222222",
-#accent = "#0CE3AC", font = "Amatic SC")
 
 showplot <- function(variables) {
   anscombe_m <- data.frame()
