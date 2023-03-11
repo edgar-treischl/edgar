@@ -14,7 +14,8 @@ slope plots).
 
 ## Installation
 
-You can install the package from [GitHub](https://github.com/) with:
+You can install the package from my [GitHub](https://github.com/)
+account:
 
 ``` r
 # install.packages("devtools")
