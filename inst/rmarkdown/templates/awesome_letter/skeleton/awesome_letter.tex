@@ -1,0 +1,125 @@
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[14pt, a4paper]{awesome-cv}
+\usepackage[ngerman]{babel}
+\usepackage{doi}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{verbatim}
+
+
+
+% Configure page margins with geometry
+\geometry{left=2cm, top=.8cm, right=2cm, bottom=1.8cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+
+\definecolor{awesome}{HTML}{414141}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{graytext}{HTML}{5D5D5D} \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+%Text Color?
+%\definecolor{graytext}{HTML}{414141}
+\definecolor{graytext}{HTML}{000000}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+\def\endfirstpage{\newpage}
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+
+%\photo{photo1a.jpg}
+\name{$name$}{$lastname$}
+
+%\position{\Large Postdoktorand}
+\address{\normalsize  Parsifalstr.  42,  90461 Nürnberg}
+
+\mobile{+49 173 46 23 490}
+\email{\href{mailto:edgar.treischl@me.com}{\nolinkurl{edgar.treischl@me.com}}}
+\homepage{www.edgar-treischl.de}
+%\twitter{ETreischl}
+\github{edgar-treischl}
+
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \skype{skype-id}
+% \reddit{reddit-id}
+
+
+%-------------------------------------------------------------------------------
+%	LETTER INFORMATION
+%	All of the below lines must be filled out
+%-------------------------------------------------------------------------------
+% The company being applied to
+\recipient
+  {$company$}
+  {$recruiter$ \newline
+  $address$ \newline
+  $city$}
+% The date on the letter, default is the date of compilation
+\letterdate{\today}
+% The title of the letter
+\lettertitle{$why$ \newline}
+% How the letter is opened
+%\letteropening{$recruiter$,}
+% How the letter is closed
+\letterclosing{Mit freundlichen Gruessen,}
+% Any enclosures with the letter
+\letterenclosure[Attached]{Curriculum Vitae}
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+
+
+
+\begin{document}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader[R]
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+\makecvfooter
+  {\today}
+  {Edgar. J. Treischl~~~·~~~Cover Letter}
+  {}
+
+% Print the title with above letter informations
+\makelettertitle
+
+
+
+$body$
+
+
+
+Mit freundlichen Grüßen,
+
+\includegraphics[scale=0.1]{sign.png}
+
+
+
+\end{document}
