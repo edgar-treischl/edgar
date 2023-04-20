@@ -1,12 +1,19 @@
 ---
-name: Dr. Edgar 
-lastname: Treischl
-title: Title
+name: "Franz" 
+lastname: "Ferdinand"
+home: "Ferdinandstr. 42, 90461 LalaLand"
+telefon: "+49 123 456 7"
+mail: "your.name@mail.com"
+web: "www.homepage.de"
+github: "github_account"
+
 why : Betreff
 company: Companyname
 recruiter: Name
 address: Street
 city: City
+sign: sign.png
+sign_size: 0.1
 output: 
   pdf_document:
     latex_engine: xelatex

@@ -52,13 +52,27 @@
 \name{$name$}{$lastname$}
 
 %\position{\Large Postdoktorand}
-\address{\normalsize  Parsifalstr.  42,  90461 Nürnberg}
+\address{\normalsize $home$}
 
-\mobile{+49 173 46 23 490}
-\email{\href{mailto:edgar.treischl@me.com}{\nolinkurl{edgar.treischl@me.com}}}
-\homepage{www.edgar-treischl.de}
+\mobile{$telefon$}
+
+$if(mail)$
+\email{$mail$}
+$endif$
+
+%\email{\href{mailto:edgar.treischl@me.com}{\nolinkurl{edgar.treischl@me.com}}}
+
+$if(web)$
+\homepage{
+$web$}
+$endif$
+
 %\twitter{ETreischl}
-\github{edgar-treischl}
+
+
+$if(github)$
+\github{$github$}
+$endif$
 
 % \gitlab{gitlab-id}
 % \stackoverflow{SO-id}{SO-name}
@@ -83,7 +97,7 @@
 % How the letter is opened
 %\letteropening{$recruiter$,}
 % How the letter is closed
-\letterclosing{Mit freundlichen Gruessen,}
+%\letterclosing{Mit freundlichen Gruessen,}
 % Any enclosures with the letter
 \letterenclosure[Attached]{Curriculum Vitae}
 
@@ -104,7 +118,7 @@ $endif$
 % Leave any of these blank if they are not needed
 \makecvfooter
   {\today}
-  {Edgar. J. Treischl~~~·~~~Cover Letter}
+  {$name$~$lastname$~~~·~~~Cover Letter}
   {}
 
 % Print the title with above letter informations
@@ -116,9 +130,7 @@ $body$
 
 
 
-Mit freundlichen Grüßen,
-
-\includegraphics[scale=0.1]{sign.png}
+\includegraphics[scale=$sign_size$]{$sign$}
 
 
 
