@@ -1,15 +1,17 @@
 % A4 paper size by default, use 'letterpaper' for US letter
-\documentclass[14pt, a4paper]{awesome-cv}
-\usepackage[ngerman]{babel}
+\documentclass[11pt, a4paper]{awesome-cv}
+%\usepackage[ngerman]{babel}
 \usepackage{doi}
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{verbatim}
+\usepackage{doi}
+
 
 
 
 % Configure page margins with geometry
-\geometry{left=2cm, top=.8cm, right=2cm, bottom=1.8cm, footskip=.5cm}
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
 % Specify the location of the included fonts
 \fontdir[fonts/]
@@ -19,6 +21,7 @@
 %                 awesome-nephritis, awesome-concrete, awesome-darknight
 
 \definecolor{awesome}{HTML}{414141}
+
 
 % Colors for text
 % Uncomment if you would like to specify your own color
@@ -37,10 +40,12 @@
 % Set false if you don't want to highlight section with awesome color
 \setbool{acvSectionColorHighlight}{true}
 
+
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
 \def\endfirstpage{\newpage}
+
 
 %-------------------------------------------------------------------------------
 %	PERSONAL INFORMATION
@@ -48,13 +53,16 @@
 %-------------------------------------------------------------------------------
 % Available options: circle|rectangle,edge/noedge,left/right
 
-%\photo{photo1a.jpg}
+
 $if(pic)$
 \photo{$pic$}
 $endif$
+
 \name{$name$}{$lastname$}
 
+
 %\position{\Large Postdoktorand}
+\position{\Large $position$}
 \address{\normalsize $home$}
 
 \mobile{$telefon$}
@@ -83,57 +91,56 @@ $endif$
 % \reddit{reddit-id}
 
 
-%-------------------------------------------------------------------------------
-%	LETTER INFORMATION
-%	All of the below lines must be filled out
-%-------------------------------------------------------------------------------
-% The company being applied to
-\recipient
-  {$company$}
-  {$recruiter$ \newline
-  $address$ \newline
-  $city$}
-% The date on the letter, default is the date of compilation
-\letterdate{\today}
-% The title of the letter
-\lettertitle{$why$ \newline}
-% How the letter is opened
-%\letteropening{$recruiter$,}
-% How the letter is closed
-%\letterclosing{Mit freundlichen Gruessen,}
-% Any enclosures with the letter
-\letterenclosure[Attached]{Curriculum Vitae}
+
 
 $if(highlighting-macros)$
 $highlighting-macros$
 $endif$
 
 
+\usepackage{booktabs}
+
+% Templates for detailed entries
+% Arguments: what when with where why
+\usepackage{etoolbox}
+\def\detaileditem#1#2#3#4#5{%
+\cventry{#1}{#3}{#4}{#2}{\ifx#5\empty\else{\begin{cvitems}#5\end{cvitems}}\fi}\ifx#5\empty{\vspace{-4.0mm}}\else\fi}
+
+\def\detailedsection#1{\begin{cventries}#1\end{cventries}}
+
+% Templates for brief entries
+% Arguments: what when with
+\def\briefitem#1#2#3{\cvhonor{}{#1}{#3}{#2}}
+\def\briefsection#1{\begin{cvhonors}#1\end{cvhonors}}
+
+% Templates for p entries
+% Arguments: when what
+\def\pitem#1#2{\cvhonor{}{#1}{#2}}
+\def\psection#1{\begin{cvhonors}#1\end{cvhonors}}
+
+\providecommand{\tightlist}{%
+	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
 
 
 \begin{document}
 
-% Print the header with above personal informations
-% Give optional argument to change alignment(C: center, L: left, R: right)
-\makecvheader[R]
+
+\makecvheader
 
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
 \makecvfooter
   {\today}
-  {$name$~$lastname$~~~·~~~Cover Letter}
-  {}
+    {$name$~$lastname$~~~·~~~Cover Letter}
+  {\thepage}
 
-% Print the title with above letter informations
-\makelettertitle
+
 
 
 
 $body$
 
-
-
-\includegraphics[scale=$sign_size$]{$sign$}
 
 
 
