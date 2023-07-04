@@ -1,0 +1,147 @@
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{awesome-cv}
+%\usepackage[ngerman]{babel}
+\usepackage{doi}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{doi}
+
+
+
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+
+\definecolor{awesome}{HTML}{414141}
+
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{graytext}{HTML}{5D5D5D} \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+%Text Color?
+%\definecolor{graytext}{HTML}{414141}
+\definecolor{graytext}{HTML}{000000}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+\def\endfirstpage{\newpage}
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+
+
+$if(pic)$
+\photo{$pic$}
+$endif$
+
+\name{$name$}{$lastname$}
+
+
+%\position{\Large Postdoktorand}
+\position{\Large $position$}
+\address{\normalsize $home$}
+
+\mobile{$telefon$}
+
+$if(mail)$
+\email{$mail$}
+$endif$
+
+%\email{\href{mailto:edgar.treischl@me.com}{\nolinkurl{edgar.treischl@me.com}}}
+
+$if(web)$
+\homepage{
+$web$}
+$endif$
+
+%\twitter{ETreischl}
+
+
+$if(github)$
+\github{$github$}
+$endif$
+
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \skype{skype-id}
+% \reddit{reddit-id}
+
+
+
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+
+\usepackage{booktabs}
+
+% Templates for detailed entries
+% Arguments: what when with where why
+\usepackage{etoolbox}
+\def\detaileditem#1#2#3#4#5{%
+\cventry{#1}{#3}{#4}{#2}{\ifx#5\empty\else{\begin{cvitems}#5\end{cvitems}}\fi}\ifx#5\empty{\vspace{-4.0mm}}\else\fi}
+
+\def\detailedsection#1{\begin{cventries}#1\end{cventries}}
+
+% Templates for brief entries
+% Arguments: what when with
+\def\briefitem#1#2#3{\cvhonor{}{#1}{#3}{#2}}
+\def\briefsection#1{\begin{cvhonors}#1\end{cvhonors}}
+
+% Templates for p entries
+% Arguments: when what
+\def\pitem#1#2{\cvhonor{}{#1}{#2}}
+\def\psection#1{\begin{cvhonors}#1\end{cvhonors}}
+
+\providecommand{\tightlist}{%
+	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+\begin{document}
+
+
+\makecvheader
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+\makecvfooter
+  {\today}
+    {$name$~$lastname$~~~·~~~Cover Letter}
+  {\thepage}
+
+
+
+
+
+$body$
+
+
+
+
+\end{document}

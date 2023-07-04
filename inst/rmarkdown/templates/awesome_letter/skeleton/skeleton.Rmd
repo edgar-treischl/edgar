@@ -1,0 +1,30 @@
+---
+name: "Kermit" 
+lastname: "The Frog"
+home: "Ferdinandstr. 42, 90461 LalaLand"
+telefon: "+49 123 456 7"
+mail: "kermit@muppets.com"
+web: "www.homepage.de"
+github: "github_account"
+pic: "me.jpeg"
+why : "Betreff"
+company: Companyname
+recruiter: Name
+address: Street
+city: City
+sign: kermit.png
+sign_size: 0.4
+output: 
+  pdf_document:
+    latex_engine: xelatex
+    template: awesome_letter.tex
+    keep_tex: true
+---
+
+Dear person,
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+Best regards
