@@ -5,7 +5,7 @@
 
 plotgraph <- function(name) {
   # locate all the shiny app examples that exist
-  validExamples <- list.files(system.file("graphs", package = "Graphs"))
+  validExamples <- list.files(system.file("graphs", package = "edgar"))
 
   validExamplesMsg <-
     paste0(
@@ -24,7 +24,7 @@ plotgraph <- function(name) {
   # find and launch the app
   #appDir <- system.file("apps", name, package = "ShinyApps")
   #shiny::runApp(appDir, display.mode = "normal", quiet = TRUE)
-  directory <- system.file("graphs/", package = "Graphs")
+  directory <- system.file("graphs/", package = "edgar")
   #file_R <- ".R"
 
   file_final <- paste(directory, name, sep = "/")
