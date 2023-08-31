@@ -27,27 +27,27 @@ shinyServer(function(input, output, session) {
   waiter_hide()
 
 
+#Select data
   datasetInput <- reactive({
     switch(input$dataset,
            "Cars" = mtcars,
            "ChickenWeight" = ChickWeight,
            "Iris" = iris,
            "Catholic" = catholic,
-           "Swiss" = swiss,
-           "Your Data" = df())
+           "Swiss" = swiss)
   })
 
-  # dependent variable
+  #Select dependent variable
   output$dv = renderUI({
     selectInput('dv', h5('Y'), choices = names(datasetInput()))
   })
 
-  # independent variable
+  #Select independent variable
   output$iv = renderUI({
     selectInput('iv', h5('X'), choices = names(datasetInput()))
   })
 
-  ### Saving data:
+  ###Creating the raw data data:
   Rawdata <- reactive({
     x <- datasetInput()[,input$iv]
     y <- datasetInput()[,input$dv]
