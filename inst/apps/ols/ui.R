@@ -18,15 +18,16 @@ library(shinyWidgets)
 
 # Define UI for application that draws a histogram
 shinyUI(fixedPage(
-  theme = bslib::bs_theme(bootswatch = "simplex", primary = "#e63946"), #for theming
+  theme = bslib::bs_theme(bootswatch = "simplex", primary = "#2a9d8f"), #for theming
   use_waiter(),
   waiter_show_on_load(html = spin_flower()),
   #useShinyjs(),  # Include shinyjs
   # Sidebar with a slider input for number of bins
+  titlePanel("Linear Regression in a Nutshell"),
   sidebarLayout(
     sidebarPanel(width = 3,
-                h4("Linear Regression in a Nutshell:"),
-                selectInput("dataset", h5("Dataset:"),
+                h4("Pick data and variables:"),
+                selectInput("dataset", label = "",
                             choices = c("Cars", "ChickenWeight", "Iris", "Catholic", "Swiss")),
                 uiOutput('iv'),
                 uiOutput('dv'),
@@ -59,7 +60,7 @@ shinyUI(fixedPage(
                              label = "Not linear?",
                              icon = icon("chart-line"))
                            ),
-                  tabPanel("OLS", icon = icon("rocket"),
+                  tabPanel("Regression", icon = icon("rocket"),
                            includeMarkdown("txt/regression.md"),
                            verbatimTextOutput("model"),
                            h5("Can you interpret the results? Can you calculate
@@ -88,7 +89,7 @@ shinyUI(fixedPage(
                            includeMarkdown("txt/variance3.md"),
                            plotOutput("regression")
                            ),
-                  tabPanel("R2", icon = icon("hand-peace"),
+                  tabPanel("R squared", icon = icon("hand-peace"),
                            includeMarkdown("txt/variance4.md"),
                            plotOutput("variance"),
                            includeMarkdown("txt/variance5.md")

@@ -39,12 +39,12 @@ shinyServer(function(input, output, session) {
 
   #Select dependent variable
   output$dv = renderUI({
-    selectInput('dv', h5('Y'), choices = names(datasetInput()))
+    selectInput('dv', h5('Outcome'), choices = names(datasetInput()))
   })
 
   #Select independent variable
   output$iv = renderUI({
-    selectInput('iv', h5('X'), choices = names(datasetInput()))
+    selectInput('iv', h5('Independent variable'), choices = names(datasetInput()))
   })
 
   ###Creating the raw data data:
