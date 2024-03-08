@@ -21,6 +21,13 @@ edgar_attach <- function() {
   )
 
   # Return a character string containing the package version for each of edgar's constituents
+  # edgarverse with the package version on the right-hand side
+  load_header <- cli::rule(
+    left = crayon::bold("Attaching packages"),
+    right = paste0("edgarverse ", package_version("edgarverse"))
+  )
+
+  # Return a character string containing the package version for each of edgarverse's constituents
   versions <- vapply(to_load, package_version, character(1))
 
   packages <- paste0(
@@ -55,11 +62,13 @@ edgar_attach <- function() {
 }
 
 # Detach all loaded packages for seeing the pretty startup message (:
+
 edgar_detach <- function() {
   pak <- paste0("package:", c(pkgs, "edgar"))
   lapply(pak[pak %in% search()], detach, character.only = TRUE)
   invisible()
 }
+
 
 #' List all packages imported by edgar
 #'
