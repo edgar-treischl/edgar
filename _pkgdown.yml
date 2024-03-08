@@ -6,7 +6,7 @@ template:
     primary: "#2a9d8f"
 navbar:
   structure:
-    right: [github]
+    right: github
     components:
     text: Articles
     menu:

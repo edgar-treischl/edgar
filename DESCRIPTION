@@ -11,15 +11,19 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
+    cli,
+    crayon,
     dplyr,
     ggplot2,
     ggrepel,
     magrittr,
-    palmerpenguins,
+    rstudioapi,
     shiny,
-    stringr,
-    tidyr
+    stringr
 Suggests: 
     knitr,
-    rmarkdown
+    palmerpenguins,
+    rmarkdown,
+    tidyr
 VignetteBuilder: knitr
+URL: https://github.com/edgar-treischl/edgar
