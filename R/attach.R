@@ -1,8 +1,8 @@
 
 pkgs <- c("dplyr", "tidyr")
 
-edgarverse_attach <- function() {
-  # Create `to_load` which is a character vector of all edgarverse
+edgar_attach <- function() {
+  # Create `to_load` which is a character vector of all edgar
   # packages not loaded in the current R session.
   to_load <- check_loaded()
 
@@ -14,13 +14,13 @@ edgarverse_attach <- function() {
 
   # Create a line rule with two text labels:
   # "Attaching packages" on the left-hand side and
-  # edgarverse with the package version on the right-hand side
+  # edgar with the package version on the right-hand side
   load_header <- cli::rule(
     left = crayon::bold("Attaching packages"),
-    right = paste0("edgarverse ", package_version("edgarverse"))
+    right = paste0("edgar ", package_version("edgar"))
   )
 
-  # Return a character string containing the package version for each of edgarverse's constituents
+  # Return a character string containing the package version for each of edgar's constituents
   versions <- vapply(to_load, package_version, character(1))
 
   packages <- paste0(
@@ -55,21 +55,21 @@ edgarverse_attach <- function() {
 }
 
 # Detach all loaded packages for seeing the pretty startup message (:
-edgarverse_detach <- function() {
-  pak <- paste0("package:", c(pkgs, "edgarverse"))
+edgar_detach <- function() {
+  pak <- paste0("package:", c(pkgs, "edgar"))
   lapply(pak[pak %in% search()], detach, character.only = TRUE)
   invisible()
 }
 
-#' List all packages imported by edgarverse
+#' List all packages imported by edgar
 #'
 #' @export
 #'
 #' @examples
-#' edgarverse_packages()
-edgarverse_packages <- function() {
-  # get all imports from edgarverse's package description file
-  raw <- utils::packageDescription("edgarverse")$Imports
+#' edgar_packages()
+edgar_packages <- function() {
+  # get all imports from edgar's package description file
+  raw <- utils::packageDescription("edgar")$Imports
   # return a character vector of all the imports
   imports <- strsplit(raw, ",")[[1]]
   # "^\\s+" matches white space at the beginning of a character string

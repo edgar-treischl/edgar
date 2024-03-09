@@ -40,7 +40,7 @@ msg <- function(...) {
 }
 
 
-# Check which of the main edgarverse packages
+# Check which of the main edgar packages
 # are currently loaded
 # The search() function  returns a character vector containing packages
 # attached to the current R session.

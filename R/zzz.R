@@ -6,7 +6,7 @@
     return()
     # Otherwise, attach any needed packages
   } else {
-    edgarverse_attach()
+    edgar_attach()
   }
 
 }
