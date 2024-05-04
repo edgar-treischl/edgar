@@ -1,5 +1,5 @@
 
-pkgs <- c("dplyr", "tidyr")
+pkgs <- c("dplyr", "tidyr", "ggplot2")
 
 edgar_attach <- function() {
   # Create `to_load` which is a character vector of all edgar

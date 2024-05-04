@@ -27,3 +27,6 @@ Suggests:
     tidyr
 VignetteBuilder: knitr
 URL: https://github.com/edgar-treischl/edgar
+Depends: 
+    R (>= 2.10)
+LazyData: true
