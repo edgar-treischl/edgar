@@ -1,12 +1,12 @@
 pandoc: 3.1.11
-pkgdown: 2.0.7
+pkgdown: 2.0.9
 pkgdown_sha: ~
 articles:
-  Overview: Overview.html
-  helper: web_only/Helper/helper.html
   apps: web_only/apps/apps.html
+  helper: web_only/Helper/helper.html
   illustrations: web_only/illustrations/illustrations.html
-last_built: 2024-03-09T07:45Z
+  Overview: Overview.html
+last_built: 2024-05-04T07:24Z
 urls:
   reference: https://edgar-treischl.github.io/edgar/reference
   article: https://edgar-treischl.github.io/edgar/articles
