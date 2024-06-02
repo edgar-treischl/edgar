@@ -1,9 +1,11 @@
 url: https://edgar-treischl.github.io/edgar/
 template:
   bootstrap: 5
-  bootswatch: litera
+  bootswatch: simplex
   bslib:
-    primary: "#2a9d8f"
+    base_font: {google: "Commissioner"}
+    heading_font: {google: "EB Garamond"}
+
 navbar:
   structure:
     right: [github]
