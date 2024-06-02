@@ -5,8 +5,7 @@ articles:
   apps: web_only/apps/apps.html
   helper: web_only/Helper/helper.html
   illustrations: web_only/illustrations/illustrations.html
-  Overview: Overview.html
-last_built: 2024-05-04T07:24Z
+last_built: 2024-06-02T14:03Z
 urls:
   reference: https://edgar-treischl.github.io/edgar/reference
   article: https://edgar-treischl.github.io/edgar/articles

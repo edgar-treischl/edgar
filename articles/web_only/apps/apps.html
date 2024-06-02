@@ -9,7 +9,9 @@
 <title>Apps • edgar</title>
 <script src="../../../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../../../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../../../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<script src="../../../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../../../deps/Commissioner-0.4.9/font.css" rel="stylesheet">
+<link href="../../../deps/EB_Garamond-0.4.9/font.css" rel="stylesheet">
+<!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../../../pkgdown.js"></script><meta property="og:title" content="Apps">
 <meta property="og:description" content="edgar">
@@ -44,7 +46,6 @@
     <a class="dropdown-item" href="../../../articles/web_only/apps/apps.html">Apps</a>
     <a class="dropdown-item" href="../../../articles/web_only/Helper/helper.html">Helper</a>
     <a class="dropdown-item" href="../../../articles/web_only/illustrations/illustrations.html">Illustrations</a>
-    <a class="dropdown-item" href="../../../articles/Overview.html">Overview</a>
   </div>
 </li>
       </ul>
@@ -80,25 +81,52 @@
 
     
     
-<p>The package contains the source code for my shiny apps. This page
-shows the links or you can run them via the package.</p>
+<p>I created several shiny apps for different purposes and
+audiences.</p>
+<p>On this site I share apps that I created for teaching purposes. Most
+of them will demonstrate the use of statistical methods for Socal
+Science students. My package contains the source code for my shiny apps.
+You can run them locally or visit the links below to see them in action.
+To run them locally, you need to install the package from GitHub. Next,
+you can run the apps via the run_app() function. It’s just a wrapper for
+shiny::runApp() and it includes the path to the app. However, if the
+function gets no input, it returns a list with available apps.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">edgar</span><span class="fu">::</span><span class="fu"><a href="../../../reference/run_app.html">run_app</a></span><span class="op">(</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co">#Runs apps via run_app() or inspect available apps</span></span>
+<span><span class="fu">edgar</span><span class="fu">::</span><span class="fu"><a href="../../../reference/run_app.html">run_app</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Error: Please run `run_app()` with a valid name as an argument.</span></span>
 <span><span class="co">#&gt; Valid examples are: 'causality', 'ols', 'power', 'titanic'</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="linear-regression-app">Linear Regression app<a class="anchor" aria-label="anchor" href="#linear-regression-app"></a>
 </h2>
+<p>The Linear Regression app is a simple app that demonstrates the use
+of the lm() function in R. The app allows you to pick different data
+sets and to run a linear regression model. The app shows different
+aspects about linear regression models, such as the interpretation of
+coefficients, the residuals, the fitted values, and the error.</p>
 <p><a href="http://rstudio.edgar-treischl.de/shiny/ols/" class="external-link"><img src="ols.png" width="694"></a></p>
 </div>
 <div class="section level2">
 <h2 id="titanic-app">Titanic app<a class="anchor" aria-label="anchor" href="#titanic-app"></a>
 </h2>
+<p>The Titanic app is a simple app that demonstrates the use of logistic
+regression in R. The app does essentially the same as the Linear
+Regression app, but it uses a logistic regression model instead and lies
+the focus on the interpretation of a logistic regression. The app uses
+the classic Titanic data set and predicts the survival of passengers
+based on different variables.</p>
 <p><a href="http://rstudio.edgar-treischl.de/shiny/titanic/" class="external-link"><img src="LogitApp.png" width="694"></a></p>
 </div>
 <div class="section level2">
 <h2 id="power-analysis-app">Power analysis app<a class="anchor" aria-label="anchor" href="#power-analysis-app"></a>
 </h2>
+<p>The <code>power</code> analysis app illustrates what statistical
+power is; how it depends on the sample size, effect size, and
+significance level by letting the user adjust those parameters on the
+fly. The app uses the <code>pwr</code> package to calculate the
+statistical power or the needed sample size depending on the user input.
+The app shows how the picked parameters increase or decrease the
+statistical power (sample size, etc.) given the chosen parameters.</p>
 <p><a href="http://rstudio.edgar-treischl.de/shiny/power/" class="external-link"><img src="PowerAnalysis.png" width="694"></a></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
