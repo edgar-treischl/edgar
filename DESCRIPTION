@@ -9,7 +9,7 @@ Description: The package is a personal package and the home for all kind of R st
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Imports: 
     cli,
     crayon,

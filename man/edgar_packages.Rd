@@ -2,12 +2,12 @@
 % Please edit documentation in R/attach.R
 \name{edgar_packages}
 \alias{edgar_packages}
-\title{List all packages imported by edgar}
+\title{List all packages imported by the edgar package}
 \usage{
 edgar_packages()
 }
 \description{
-List all packages imported by edgar
+List all packages imported by the edgar package
 }
 \examples{
 edgar_packages()

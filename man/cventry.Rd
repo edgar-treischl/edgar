@@ -2,7 +2,7 @@
 % Please edit documentation in R/latex_helpers.R
 \name{cventry}
 \alias{cventry}
-\title{Make a cventry entry}
+\title{Make a Latex cventry entry}
 \usage{
 cventry(
   center = " ",
@@ -13,21 +13,21 @@ cventry(
 )
 }
 \arguments{
-\item{center}{Param.}
+\item{center}{Param center.}
 
-\item{lefttop}{Param.}
+\item{lefttop}{Param lefttop.}
 
-\item{righttop}{Param.}
+\item{righttop}{Param righttop.}
 
-\item{rightbottom}{Param.}
+\item{rightbottom}{Param rightbottom.}
 
-\item{leftbuttom}{Param.}
+\item{leftbuttom}{Param leftbuttom.}
 }
 \value{
-A ggplot2 object.
+A chracter vector.
 }
 \description{
-Make a cventry entry
+Make a Latex cventry entry
 }
 \examples{
 cventry(center = "Hallo", lefttop = "world")

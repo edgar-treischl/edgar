@@ -1,0 +1,47 @@
+name: Build and Generate PDF
+
+on:
+  push:
+    branches:
+      - main  # Trigger the action when code is pushed to the main branch (adjust as needed)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Can use 'macos-latest' or 'windows-latest' as well if needed
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.4'  # Set to the version of R you're using
+
+      - name: Install system dependencies for PDF rendering
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            pandoc \
+            texlive \
+            texlive-xetex \
+            texlive-fonts-recommended \
+            texlive-latex-extra \
+            libcurl4-openssl-dev \
+            libssl-dev \
+            libxml2-dev
+
+      - name: Install R packages
+        run: |
+          install.packages('devtools')  # If using devtools for installing your package
+          devtools::install_github("edgar-treischl/edgar")
+
+      - name: Render PDF from CV_ET.Rmd
+        run: |
+          Rscript -e "rmarkdown::render('CV_ET/CV_ET.Rmd', output_format = 'pdf_document')"
+
+      - name: Upload PDF as an artifact (optional)
+        uses: actions/upload-artifact@v3
+        with:
+          name: CV_PDF
+          path: CV_ET/CV_ET.pdf  # Path to the output PDF file

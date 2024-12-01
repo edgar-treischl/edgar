@@ -2,22 +2,22 @@
 % Please edit documentation in R/ggplots.R
 \name{ggpie}
 \alias{ggpie}
-\title{Make a pie chart}
+\title{Make a pie chart.}
 \usage{
 ggpie(data, fill, legend = "none")
 }
 \arguments{
-\item{data}{A character vector with one element.}
+\item{data}{Data.}
 
 \item{fill}{The variable to fill the pie.}
 
-\item{legend}{The default does not return a legend.}
+\item{legend}{The legend position.}
 }
 \value{
 A ggplot2 object.
 }
 \description{
-Make a pie chart
+Make a pie chart.
 }
 \examples{
 ggpie(palmerpenguins::penguins, fill = island)

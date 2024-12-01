@@ -1,0 +1,196 @@
+---
+name: "Dr. Edgar" 
+lastname: "Treischl"
+home: "Parsifalstr. 42, 90461 Nürnberg"
+position: "Data Scientist"
+telefon: "+49 173 46 23 490"
+mail: "bewerbungen@edgar-treischl.de"
+web: "www.edgar-treischl.de"
+github: "edgar-treischl"
+pic: "me.jpg"
+output: 
+  pdf_document:
+    latex_engine: xelatex
+    template: awesome_cv.tex
+    keep_tex: false
+---
+
+```{r setup, include=FALSE}
+library(edgar)
+```
+
+
+\hypertarget{some-stuff-about-me}{%
+\section{Über mich}\label{some-stuff-about-me}}
+
+Momentan arbeite ich als Data Scientist beim Staatsinstitut für Schulqualität und Bildungsforschung München. Meine bisherige Tätigkeiten waren stark auf die Themen wie Evaluation, Umfrageforschung und Kausalität ausgerichtet. Ich bin auch ein R-Enthusiast mit einem breiteren Blick auf Data Science Themen wie Datenvisualisierung, NLP, maschinelles Lernen. 
+
+
+\hypertarget{work-experience}{%
+\section{Beruflicher Werdegang}\label{work-experience}}
+\briefsection{
+\briefitem{\textbf{~Data Scientist}: Staatsinstitut für Schulqualität und Bildungsforschung}{Seit 2024~~}{München}
+\briefitem{-- Entwicklung eines automatisierten Online Evaluation Report Systems}{}{}
+\briefitem{-- Entwicklung von Dashboards}{}{}
+\briefitem{-- Überarbeitung mehrerer R Packages nach CRAN Standards}{}{}
+\briefitem{\textbf{~Sabbatical}: Aufenthalte in Peru,  Argentinien und Cuba  }{2022-2023}{}
+\briefitem{\textbf{~Postdoktorand} am Lehrstuhl für ``Empirische Wirtschaftssoziologie'' (T. Wolbring) }{2019-2022}{Universität Erlangen-Nürnberg}
+\briefitem{-- Lehre,  Forschung, Supervision of BA/MA Arbeiten}{}{}
+%\briefitem{-- Durchführung von faktoriellen Umfrageexperimenten zur Untersuchung der Akzeptanz von KI-basierten Anwendungen}{}{}
+%\briefitem{-- Developed R Packages: \textcolor{awesome-red}{\href{https://edgar-treischl.github.io/CopyCat/}{CopyCat}},  \textcolor{awesome-red}{\href{https://edgar-treischl.github.io/PracticeR/}{PracticeR}}}{}{}
+\briefitem{-- Webmaster and IT Beauftragter}{}{}
+\briefitem{\textbf{~Wissenschaftlicher Mitarbeiter} am Lehrstuhl für ``Empirische Wirtschaftssoziologie'' (T. Wolbring)}{2017–2019}{Universität Erlangen-Nürnberg}
+\briefitem{-- Lehre,  Forschung, Supervision of BA/MA Arbeiten}{}{}
+\briefitem{-- Koordination des FAU Masterprogramms ``Sozial-Ökonomik'' }{}{}
+%\briefitem{-- Programmed several R Shiny apps for teaching purposes (e.g., \textcolor{awesome-red}{\href{http://rstudio.edgar-treischl.de/shiny/titanic/}{Logistic regression}}, \textcolor{awesome-red}{\href{http://rstudio.edgar-treischl.de/shiny/power/}{Power analysis}})}{}{}
+%\briefitem{-- Webmaster of the chairs website and accountable for the IT}{}{}
+\briefitem{\textbf{~Wissenschaftlicher Mitarbeiter} am Lehrstuhl für ``Statistik und quantitative Methoden'' (F.  Kreuter)}{2016–2017}{Universität Mannheim}
+%\briefitem{-- Teaching, supervision of BA/MA theses, and part of the organization of a hackathon}{}{}
+\briefitem{-- Mitglied der Graduiertenschule (Kursen in NLP,  Ereignis-,  und Paneldatenanalyse)}{}{}
+\briefitem{-- Projektassistent am Mannheimer Zentrum für Europäische Sozialforschung (T. Wolbring)}{}{}
+\briefitem{\textbf{~Wissenschaftlicher Mitarbeiter} am Lehrstuhl für ``Quantitative Methoden'' (J. Brüderl \& S. Pointner)}{2013–2016}{LMU München}
+%\briefitem{-- Conducted field experiments to identify the causal effect of survey mode in student evaluation (SET)}{}{}
+%\briefitem{-- Responsible for the transition from paper-based to online-based SET at the social science department}{}{}
+%\briefitem{-- Developed dashboards to automate the communication of evaluation results}{}{}
+%\briefitem{-- Consulting: Evaluation of Secondary Schools (in cooperation with the Pedagogical Institute, Munich)}{}{}
+\briefitem{\textbf{~Studentische Hilfskraft} am Lehrstuhl für quantitative Methoden der LMU München (Norman Braun Ph.D)}{2009–2013}{}
+\briefitem{\textbf{~Freier Mitarbeiter} TNS Infratest München (Quantitative Marktforschung, Automotive)}{2007–2009}{}
+}
+
+
+
+\hypertarget{education}{%
+\section{Bildungsabschlüsse}\label{education}}
+\briefsection{
+\briefitem{\textbf{~Doktor der Sozialwissenschaften} (Dr.  rer. soc.)}{2013–2019}{Uni Mannheim}
+\briefitem{~Thema: Selektionseffekte bei der studentischen Lehrevaluation}{}{}
+\briefitem{~Note: Magna cum laude (1.0)}{}{}
+\briefitem{\textbf{~Diplom-Soziologe}}{2007–2013}{LMU München}
+\briefitem{~Nebenfächer: Psychologie,  Kommunikationswissenschaft}{}{}
+\briefitem{~Note: Sehr gut (1.3)}{}{}
+%\briefitem{\textbf{~Vordiplom Sozialpädagogik (Fachgebundene Hochschulreife)}}{2005–2007}{FH Coburg}
+%\briefitem{\textbf{~Freiwilliges soziales Jahr}}{2004–2005}{Augsburg}
+%\briefitem{\textbf{~Fachhochschulreife}}{2002–2004}{Augsburg}
+%\briefitem{\textbf{~Mittlere Reife}}{2000–2002}{Augsburg}
+}
+
+
+
+\hypertarget{teaching-portfolio}{%
+\section{Lehrerfahrung}\label{teaching-portfolio}}
+\begin{verbatim}
+##    Kurstitel                             Typ       Level   
+##  1 Empirische Methoden und Statistik     Seminar   Bachelor  
+##  2 Empirische Bildungsforschung          Vorlesung Master    
+##  3 Experimentelle Forschung              Seminar   Bachelor     
+##  4 Klassiker der Sozialforschung         Seminar   Master
+##  5 Datenanalyse mit (R/STATA/SPSS)       Seminar   BA/MA
+##  ...
+\end{verbatim}
+
+
+\hypertarget{Projekte}{%
+\section{Projekte: Bücher}\label{Projekte}}
+
+\begin{minipage}{0.2\textwidth}
+\href{https://edgar-treischl.github.io/PracticeR/}{\includegraphics[width=3.2cm, height=3cm]{pr}}
+\end{minipage}
+\begin{minipage}{0.8\textwidth}
+\textbf{\textcolor{awesome}{\href{https://edgar-treischl.github.io/PracticeR/}{Practice R:}}} Many students learn to analyze data using commercial packages, even though there is an open-source software with cutting-edge possibilities: R, a programming language with countless cool features for applied empirical research.  Practice R introduces R to social science students,  inspiring them to consider R as an excellent choice.  In a non-technical pragmatic way,  this book covers ...  (De Gruyter 2023)
+\end{minipage}
+
+\begin{minipage}{0.2\textwidth}
+\href{https://www.beltz.de/fachmedien/soziologie/produkte/details/42792-wirkungsevaluation.html}{\includegraphics[width=3.2cm, height=3cm]{eval}}
+\end{minipage}
+\begin{minipage}{0.8\textwidth}
+\textbf{\textcolor{black}{Wirkungsevaluation:}} Evaluationen werden häufig durchgeführt, um die kausalen Wirkungen einer Maßnahme zu identifizieren. Das Lehrbuch führt in die entsprechenden theoretischen und methodischen Grundlagen der Wirkungsevaluation ein und illustriert diese anhand ausgewählter Beispiele ...  (Beltz Juventa 2020)
+\end{minipage}
+
+\textbf{{\Large Forschung (Auszug)}} \newline
+\begin{minipage}{0.2\textwidth}
+\href{https://www.jstor.org/stable/43920030}{\includegraphics[width=3.5cm, height=3cm]{paper}}
+\end{minipage}
+\begin{minipage}{0.8\textwidth}
+\textbf{\textcolor{black}{Selection Bias in Students' Evaluation of Teaching:}} Systematic sampling error due to self-selection is a common topic in methodological research and a key challenge for every empirical study. Since selection bias is often not sufficiently considered as a potential flaw in research on and evaluations in higher education, the aim of this paper is ...  (Research in Higher Education)
+\end{minipage}
+
+\begin{minipage}{0.2\textwidth}
+\href{https://edgar-treischl.de/publication/treischl_wolbring_2021/}{\includegraphics[width=3.2cm, height=3cm]{fse}}
+\end{minipage}
+\begin{minipage}{0.8\textwidth}
+\textbf{\textcolor{black}{The Past, Present and Future of Factorial Survey Experiments:}} Factorial survey experiments (FSEs) are increasingly used in the social sciences. This paper provides a review about the use of FSEs and aims to answer three research questions. (1) How has this specific research field developed over time? (2) Which methodological advances have ...  (Methods, Data, Analysis.)
+\end{minipage}
+
+\textbf{{\Large R Projekte}}
+\begin{minipage}{0.2\textwidth}
+\href{https://edgar-treischl.github.io/CopyCat/}{\includegraphics[width=2.8cm, height=3cm]{metamaster}}
+\end{minipage}
+\begin{minipage}{0.8\textwidth}
+\textbf{\textcolor{black}{MetaMaster:}} The MetaMaster package creates the *master meta data*. The latter are meta data for Lime Survey which are reproducible, tested, and - in consequence - error-free. To this end, the package provides functions to exchange data via the Lime Survey API and functions to work with a PostgreSQL database. Furthermore, the package introduces consistency checks and further helpers to automate the process to build meta data for Lime Survey.
+\end{minipage}
+
+\begin{minipage}{0.2\textwidth}
+\href{https://edgar-treischl.github.io/CopyCat/}{\includegraphics[width=2.8cm, height=3cm]{copycat}}
+\end{minipage}
+\begin{minipage}{0.8\textwidth}
+\textbf{\textcolor{black}{CopyCat:}} Is a small package to copy, paste, and manage code snippets. CopyCat comes with code snippets (minimal examples) that run with implemented data. In addition, CopyCat provides an addin for RStudio to manage code snippets quickly. CopyCat was built as a personal package for the lazy cats, but it may help (new) R users ...
+\end{minipage}
+
+\begin{minipage}{0.2\textwidth}
+\href{https://edgar-treischl.de/project/}{\includegraphics[width=3cm, height=3.4cm]{ols}}
+\end{minipage}
+\begin{minipage}{0.8\textwidth}
+\textbf{\textcolor{black}{Apps:}} I have created and used several \verb+shiny+ apps to interactively introduce students to statistical methods: For example,  the power analysis app teaches how sample and effect size determine statistical power; or with the linear regression app, users can perform a multivariate analysis without skills of statistical software.
+\end{minipage}
+
+
+
+
+
+
+\hypertarget{skills}{%
+\section{Weitere Skills}\label{skills}}
+
+\begin{itemize}
+\item \textbf{Fortbildungen \href{https://www.credly.com/users/edgar-treischl}{(siehe Credly für mehr Informationen):}} AWS (Data Analytics,  Introduction to Machine Learning),  IBM Machine Learning with Python: A Practical Introduction (edX), IBM SQL for Data Science (edX)
+  \item \textbf{Programmierung:} Python, R
+  \item \textbf{Sonstige:} Docker, Git(Hub),  Jira, \LaTeX, Stata
+  \item \textbf{Sprachen:} Deutsch (Muttersprache), English, Spanisch, Niederländisch
+  \item \textbf{Web:} HTML, CSS, JavaScript (Grundkenntnisse)
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -61,7 +61,7 @@ edgar_detach <- function() {
   invisible()
 }
 
-#' List all packages imported by edgar
+#' List all packages imported by the edgar package
 #'
 #' @export
 #'
