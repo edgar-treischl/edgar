@@ -54,35 +54,27 @@
 % Available options: circle|rectangle,edge/noedge,left/right
 
 
-$if(pic)$
-\photo{$pic$}
-$endif$
+\photo{me.jpeg}
 
-\name{$name$}{$lastname$}
+\name{Kermit}{The Frog}
 
 
 %\position{\Large Postdoktorand}
-\position{\Large $position$}
-\address{\normalsize $home$}
+\position{\Large Professional Muppet}
+\address{\normalsize Muppetstreet 42, 90461 LalaLand}
 
-\mobile{$telefon$}
+\mobile{+49 123 456 7}
 
-$if(mail)$
-\email{$mail$}
-$endif$
+\email{\href{mailto:your.name@mail.com}{\nolinkurl{your.name@mail.com}}}
 
 %\email{\href{mailto:edgar.treischl@me.com}{\nolinkurl{edgar.treischl@me.com}}}
 
-$if(web)$
-\homepage{$web$}
-$endif$
+\homepage{www.homepage.de}
 
 %\twitter{ETreischl}
 
 
-$if(github)$
-\github{$github$}
-$endif$
+\github{github\_account}
 
 % \gitlab{gitlab-id}
 % \stackoverflow{SO-id}{SO-name}
@@ -92,9 +84,6 @@ $endif$
 
 
 
-$if(highlighting-macros)$
-$highlighting-macros$
-$endif$
 
 
 \usepackage{booktabs}
@@ -131,14 +120,36 @@ $endif$
 % Leave any of these blank if they are not needed
 \makecvfooter
   {\today}
-    {$name$~$lastname$~~~·~~~Cover Letter}
+    {Kermit~The Frog~~~·~~~Cover Letter}
   {\thepage}
 
 
 
 
 
-$body$
+\section{Text}\label{text}
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+ipsum dolor sit amet.
+
+\section{briefsections}\label{briefsections}
+
+\briefsection{
+  \briefitem{~What I've Done here}{From–To}{Where}
+}
+
+\section{CVentry}\label{cventry}
+
+\cventry{Right}{AboveRight}{LeftAbove}{LeftCenter}{BelowRight}
+
+\%\newpage
 
 
 

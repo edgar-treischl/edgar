@@ -1,8 +1,8 @@
-#' Make a pie chart
+#' Make a pie chart.
 #'
-#' @param data A character vector with one element.
+#' @param data Data.
 #' @param fill The variable to fill the pie.
-#' @param legend The default does not return a legend.
+#' @param legend The legend position.
 #'
 #' @return A ggplot2 object.
 #' @export

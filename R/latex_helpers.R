@@ -1,12 +1,12 @@
-#' Make a cventry entry
+#' Make a Latex cventry entry
 #'
-#' @param center Param.
-#' @param lefttop Param.
-#' @param righttop Param.
-#' @param rightbottom Param.
-#' @param leftbuttom Param.
+#' @param center Param center.
+#' @param lefttop Param lefttop.
+#' @param righttop Param righttop.
+#' @param rightbottom Param rightbottom.
+#' @param leftbuttom Param leftbuttom.
 #'
-#' @return A ggplot2 object.
+#' @return A chracter vector.
 #' @export
 #'
 #' @examples
@@ -25,41 +25,41 @@ cventry <- function(center = " ",
 }
 
 
-#' Make a briefitem
+#' Make a Latex briefitem
 #'
-#' @param what Param.
-#' @param when Param.
-#' @param where Param.
+#' @param what Param what.
+#' @param when Param when.
+#' @param where Param where.
 #'
-#' @return A string
+#' @return A chracter vector.
 #' @export
 #'
 #' @examples
-#' briefitem(what = "Hallo", when = "world", where = "here")
+#' brief_item(what = "Hallo", when = "world", where = "here")
 
 
-briefitem <- function(what = "", when = "", where = "") {
+brief_item <- function(what = "", when = "", where = "") {
   x <- paste0("\\briefitem{", what, "}{", when, "}{",where, "}", "\n")
   x
 }
 
 
 
-#' Make a briefsection
+#' Make a Latex briefsection
 #'
-#' @param what Param.
-#' @param when Param.
-#' @param where Param.
+#' @param what Param what.
+#' @param when Param when.
+#' @param where Param where.
 #'
-#' @return A string
+#' @return A chracter vector.
 #' @export
 #'
 #' @examples
-#' briefsection(what = "Hallo", when = "world", where = "here")
+#' brief_section(what = "Hallo", when = "world", where = "here")
 
-briefsection <- function(what = " ", when = " ", where = " ") {
+brief_section <- function(what = " ", when = " ", where = " ") {
   #x <- paste0("\\briefitem{", what, "}{", when, "}{",where, "}")
-  x <- briefitem(what = what, when = when, where = where)
+  x <- brief_item(what = what, when = when, where = where)
   x <- stringr::str_flatten(x)
 
   overall <- paste0("\\briefsection{", "\n",

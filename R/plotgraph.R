@@ -1,12 +1,14 @@
-#' Print a graph
-#' @param name A search string
-#' @return Plot
+#' Plot a graph.
+#' @param name A character string.
+#' @return A plot.
 #' @export
 
-plotgraph <- function(name) {
-  # locate all the shiny app examples that exist
+plot_graph <- function(name) {
+
+  # locate the valid examples
   validExamples <- list.files(system.file("graphs", package = "edgar"))
 
+  #create a message for the user
   validExamplesMsg <-
     paste0(
       "Valid examples are:\n",
@@ -21,15 +23,14 @@ plotgraph <- function(name) {
       call. = TRUE)
   }
 
-  # find and launch the app
-  #appDir <- system.file("apps", name, package = "ShinyApps")
-  #shiny::runApp(appDir, display.mode = "normal", quiet = TRUE)
+  #where the graphs are stored
   directory <- system.file("graphs/", package = "edgar")
-  #file_R <- ".R"
 
+  #append the file extension
+  #file_R <- ".R"
   file_final <- paste(directory, name, sep = "/")
 
-
+  #source the file
   source(file_final)
   showplot()
 
