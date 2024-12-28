@@ -15,7 +15,7 @@ text_col <- function(x) {
 # Format the package version to indicate development versions when printed on
 # the command line
 package_version <- function(x) {
-  # packageVersion returns an object with class 'package_version' and 'numeric_version'
+  # returns an object with class 'package_version' and 'numeric_version'
   # unclass removes those and it becomes a numeric
   version <- unclass(utils::packageVersion(x))[[1]]
 
@@ -23,7 +23,9 @@ package_version <- function(x) {
   # as happens with development packages, coerce those
   # dev version numbers to red
   if (length(version) > 3) {
-    version[4:length(version)] <- crayon::red(as.character(version[4:length(version)]))
+    version[4:length(version)] <- crayon::red(
+      as.character(version[4:length(version)])
+    )
   }
 
   # concatenate the result
