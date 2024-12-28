@@ -3,7 +3,7 @@
 #' @return A shiny app
 #' @export
 
-run_app <- function(name) {
+run_App <- function(name) {
   # locate all the shiny app examples that exist
   valid_examples <- list.files(system.file("apps", package = "edgar"))
 

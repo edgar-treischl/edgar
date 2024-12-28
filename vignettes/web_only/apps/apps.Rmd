@@ -21,7 +21,7 @@ On this site I share apps that I created for teaching purposes. Most of them wil
 
 ```{r, error=TRUE}
 #Runs apps via run_app() or inspect available apps
-edgar::run_app()
+edgar::run_App()
 ```
 
 
