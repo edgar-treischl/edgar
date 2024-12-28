@@ -5,24 +5,25 @@
 
 run_app <- function(name) {
   # locate all the shiny app examples that exist
-  validExamples <- list.files(system.file("apps", package = "edgar"))
+  valid_examples <- list.files(system.file("apps", package = "edgar"))
 
-  validExamplesMsg <-
+  valid_msg <-
     paste0(
       "Valid examples are: '",
-      paste(validExamples, collapse = "', '"),
-      "'")
+      paste(valid_examples, collapse = "', '"),
+      "'"
+    )
 
   # if an invalid example is given, throw an error
-  if (missing(name) || !nzchar(name) ||
-      !name %in% validExamples) {
+  if (missing(name) || !nzchar(name) || !name %in% valid_examples) {
     stop(
-      'Please run `run_app()` with a valid name as an argument.\n',
-      validExamplesMsg,
-      call. = FALSE)
+      "Please run `run_app()` with a valid name as an argument.\n",
+      valid_msg,
+      call. = FALSE
+    )
   }
 
   # find and launch the app
-  appDir <- system.file("apps", name, package = "edgar")
-  shiny::runApp(appDir, display.mode = "normal", quiet = TRUE)
+  app_dir <- system.file("apps", name, package = "edgar")
+  shiny::runApp(app_dir, display.mode = "normal", quiet = TRUE)
 }

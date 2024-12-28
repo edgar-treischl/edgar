@@ -45,7 +45,7 @@ returns the graphs. For example, do you know the `datasaurus` plot?
 ``` r
 # plotgraph function runs the source code
 library(edgar)
-plotgraph("datasaurus.R")
+plot_graph("datasaurus.R")
 ```
 
 <img src="man/figures/saurus.png" alt="Data saurus by Edgar Treischl" width="80%" />
@@ -54,8 +54,8 @@ Without input, the `plotgraph()` function returns available graphs.
 
 ``` r
 # list available graphs without input
-plotgraph()
-#> Error in plotgraph(): Please run `plotgraph()` with a valid argument.
+plot_graph()
+#> Error in plot_graph(): Please run `plotgraph()` with a valid argument.
 #> Valid examples are:
 #> anscombe_quartet.R
 #> boxplot_illustration.R

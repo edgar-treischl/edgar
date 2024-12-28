@@ -47,7 +47,7 @@ Every now and then I searched in my own code for a specific graph that I wanted 
 ```{r, eval=FALSE}
 # plotgraph function runs the source code
 library(edgar)
-plotgraph("datasaurus.R")
+plot_graph("datasaurus.R")
 ```
 
 ```{r, echo=FALSE, fig.alt='Data saurus by Edgar Treischl'}
@@ -58,7 +58,7 @@ Without input, the `plotgraph()` function returns available graphs.
 
 ```{r example, warning=TRUE, error=TRUE}
 # list available graphs without input
-plotgraph()
+plot_graph()
 ```
 
 ## Graphs

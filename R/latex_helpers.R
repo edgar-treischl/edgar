@@ -17,10 +17,10 @@ cventry <- function(center = " ",
                     righttop = " ",
                     rightbottom = " ",
                     leftbuttom = " ") {
-
-
-  x <-paste0("\\cventry{", center,"}{", lefttop,
-             "}{", righttop, "}{", rightbottom,"}{",leftbuttom,"}", "\n")
+  x <- paste0(
+    "\\cventry{", center, "}{", lefttop,
+    "}{", righttop, "}{", rightbottom, "}{", leftbuttom, "}", "\n"
+  )
   cat(x)
 }
 
@@ -36,10 +36,8 @@ cventry <- function(center = " ",
 #'
 #' @examples
 #' brief_item(what = "Hallo", when = "world", where = "here")
-
-
 brief_item <- function(what = "", when = "", where = "") {
-  x <- paste0("\\briefitem{", what, "}{", when, "}{",where, "}", "\n")
+  x <- paste0("\\briefitem{", what, "}{", when, "}{", where, "}", "\n")
   x
 }
 
@@ -56,15 +54,15 @@ brief_item <- function(what = "", when = "", where = "") {
 #'
 #' @examples
 #' brief_section(what = "Hallo", when = "world", where = "here")
-
 brief_section <- function(what = " ", when = " ", where = " ") {
-  #x <- paste0("\\briefitem{", what, "}{", when, "}{",where, "}")
   x <- brief_item(what = what, when = when, where = where)
   x <- stringr::str_flatten(x)
 
-  overall <- paste0("\\briefsection{", "\n",
-                    x,
-                    "}")
+  overall <- paste0(
+    "\\briefsection{", "\n",
+    x,
+    "}"
+  )
 
   cat(overall)
 }

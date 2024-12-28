@@ -20,7 +20,7 @@ edgar_attach <- function() {
     right = paste0("edgar ", package_version("edgar"))
   )
 
-  # Return a character string containing the package version for each of edgar's constituents
+  # Return a character string with the package version
   versions <- vapply(to_load, package_version, character(1))
 
   packages <- paste0(
