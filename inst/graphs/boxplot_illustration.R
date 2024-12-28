@@ -1,5 +1,3 @@
-
-
 showplot <- function(variables) {
   sysfonts::font_add_google("Lato", "lato")
 
@@ -38,12 +36,13 @@ showplot <- function(variables) {
       y = max_mpg - 1, x = -.52,
       label = "Maximum"
     ) +
-    ggplot2::geom_segment(ggplot2::aes(
-      x = -0.04, y = max_mpg - 1.3, # median
-      xend = -.45, yend = max_mpg - 1.3
-    ),
-    arrow = ggplot2::arrow(length = ggplot2::unit(0.5, "cm")),
-    size = 1
+    ggplot2::geom_segment(
+      ggplot2::aes(
+        x = -0.04, y = max_mpg - 1.3, # median
+        xend = -.45, yend = max_mpg - 1.3
+      ),
+      arrow = ggplot2::arrow(length = ggplot2::unit(0.5, "cm")),
+      size = 1
     ) +
     # outliers
     ggplot2::annotate("text",
@@ -54,16 +53,17 @@ showplot <- function(variables) {
     ) +
     # min
     ggplot2::annotate("text", y = min_mpg, x = -.52, label = "Minimum") +
-    ggplot2::geom_segment(ggplot2::aes(
-      x = -0.04, y = min_mpg, # median
-      xend = -.45, yend = min_mpg
-    ),
-    arrow = ggplot2::arrow(length = ggplot2::unit(0.5, "cm")),
-    size = 1
+    ggplot2::geom_segment(
+      ggplot2::aes(
+        x = -0.04, y = min_mpg, # median
+        xend = -.45, yend = min_mpg
+      ),
+      arrow = ggplot2::arrow(length = ggplot2::unit(0.5, "cm")),
+      size = 1
     ) +
-    #geom_brace(aes(c(-.38, -0.48), c(15.425, 22.800), label = ""),
-      #inherit.data = F, labelsize = 5, rotate = 270
-    #) +
+    # geom_brace(aes(c(-.38, -0.48), c(15.425, 22.800), label = ""),
+    # inherit.data = F, labelsize = 5, rotate = 270
+    # ) +
     ggplot2::annotate("text", y = 19.9, x = -.52, label = "Interquartile range") +
     ggplot2::ylim(5, 40) +
     ggplot2::xlim(-.65, .5) +
@@ -90,4 +90,3 @@ showplot <- function(variables) {
 }
 
 showplot()
-
