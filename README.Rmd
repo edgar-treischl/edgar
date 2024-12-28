@@ -69,19 +69,20 @@ And the package gives access to helper functions to make or improve `ggplot2` gr
 library(tidyr)
 library(ggplot2)
 
-#example data
+# example data
 df <- tribble(
- ~times, ~country,  ~gdp, ~inc,
- "1990",   "A",  22.3, TRUE,
- "2000",   "A",  44.6, TRUE,
- "1990",   "B",  12.3, FALSE,
- "2000",   "B",  4.6, FALSE
- )
+  ~times, ~country, ~gdp, ~inc,
+  "1990", "A", 22.3, TRUE,
+  "2000", "A", 44.6, TRUE,
+  "1990", "B", 12.3, FALSE,
+  "2000", "B", 4.6, FALSE
+)
 
-#slope plot
-ggslope(df, 
-        times = times,
-        outcome = gdp,
-        group = country)+
+# slope plot
+ggslope(df,
+  times = times,
+  outcome = gdp,
+  group = country
+) +
   theme_minimal()
 ```

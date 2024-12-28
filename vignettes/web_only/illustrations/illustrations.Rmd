@@ -8,14 +8,15 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
-knitr::opts_chunk$set(fig.retina = 3, 
-                      warning = FALSE, 
-                      message = FALSE)
+knitr::opts_chunk$set(
+  fig.retina = 3,
+  warning = FALSE,
+  message = FALSE
+)
 
 Rmd_Files <- list.files(path = "Rmd/", pattern = ".Rmd")
-path <- paste( "Rmd/", Rmd_Files, sep = "" )
-#source("Rmd/utils.R")
-
+path <- paste("Rmd/", Rmd_Files, sep = "")
+# source("Rmd/utils.R")
 ```
 
 Every now and then I searched in my own code for a specific graph that I wanted to reuse. The package includes some of the graphs that I created which might be a good starting point for my future self or for your own project. The `plotgraph()` function runs the installed source code and returns the graphs. For example, do you know the `datasaurus` plot?

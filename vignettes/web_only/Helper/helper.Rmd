@@ -21,7 +21,7 @@ I don't like pie charts, because they are hard to read. It is hard to compare th
 
 
 ```{r}
-#ggpie is a wrapper around ggplot2 that makes it easy to make pie charts
+# ggpie is a wrapper around ggplot2 that makes it easy to make pie charts
 ggpie(penguins, fill = species)
 ```
 
@@ -32,19 +32,20 @@ Slope charts are cool: they show the change in a variable over time for differen
 The next code shows an example using a data frame with GDP and income fake data for two countries over two time periods.
 
 ```{r}
-#toy data
- df <- tidyr::tribble(
- ~times, ~country,  ~gdp, ~inc,
- "1990",   "A",  22.3, TRUE,
- "2000",   "A",  44.6, TRUE,
- "1990",   "B",  12.3, FALSE,
- "2000",   "B",  4.6, FALSE
- )
+# toy data
+df <- tidyr::tribble(
+  ~times, ~country, ~gdp, ~inc,
+  "1990", "A", 22.3, TRUE,
+  "2000", "A", 44.6, TRUE,
+  "1990", "B", 12.3, FALSE,
+  "2000", "B", 4.6, FALSE
+)
 
 # ggslope is a wrapper around ggplot2
 ggslope(df,
-        times = times,
-        outcome = gdp,
-        group = country)
+  times = times,
+  outcome = gdp,
+  group = country
+)
 ```
 

@@ -8,10 +8,11 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
-knitr::opts_chunk$set(fig.retina = 3, 
-                      warning = FALSE, 
-                      message = FALSE)
-
+knitr::opts_chunk$set(
+  fig.retina = 3,
+  warning = FALSE,
+  message = FALSE
+)
 ```
 
 I created several shiny apps for different purposes and audiences. 
@@ -20,7 +21,7 @@ On this site I share apps that I created for teaching purposes. Most of them wil
 
 
 ```{r, error=TRUE}
-#Runs apps via run_app() or inspect available apps
+# Runs apps via run_app() or inspect available apps
 edgar::run_App()
 ```
 

@@ -1,4 +1,3 @@
-
 pkgs <- c("dplyr", "tidyr", "ggplot2")
 
 edgar_attach <- function() {
@@ -51,7 +50,6 @@ edgar_attach <- function() {
 
   # Thanks for playing
   invisible()
-
 }
 
 # Detach all loaded packages for seeing the pretty startup message (:
@@ -79,5 +77,4 @@ edgar_packages <- function() {
   names <- vapply(strsplit(parsed, "\\s+"), "[[", 1, FUN.VALUE = character(1))
 
   return(names)
-
 }
